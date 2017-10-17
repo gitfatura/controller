@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.service.CategoriaReceitaService;
 import br.com.service.ReceitaService;
 
-@WebServlet({ "/adiciona-receita", "/update-receita", "/remove-receita", "/busca-receita", "/todas-receitas",
+@WebServlet({ "/adiciona-receita", "/update-receita", "/remove-receita", "/busca-receita", "/receitas",
 		"/nova-receita" })
 public class ReceitaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,10 +52,10 @@ public class ReceitaController extends HttpServlet {
 				
 			}
 			
-			if (uri.equalsIgnoreCase(path + "/todas-catagorias-receitas")) {
+			if (uri.equalsIgnoreCase(path + "/receitas")) {
 				receitaService.buscarTodos(request, response);
-				
-				request.getRequestDispatcher("/geral.jsp").forward(request, response);
+				categoriaReceitaService.buscaTodos(request, response);
+				request.getRequestDispatcher("/receitas.jsp").forward(request, response);
 			}
 
 			

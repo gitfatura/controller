@@ -30,7 +30,7 @@
 		            <a class="nav-link  dropdown-toggle"  href="#"  style="font-family: 'serif'" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Receita</a>
 		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		            		<a class="dropdown-item" href="./nova-receita">Nova receita</a>		
-         			 	<a class="dropdown-item" href="#">Todas receitas</a>
+         			 	<a class="dropdown-item" href="./receitas">Todas receitas</a>
           				<a class="dropdown-item" href="#">Receitas atual</a>
         				</div>
 		            

@@ -19,7 +19,7 @@
 
 <jsp:include page="home.jsp"/>
 
-	<div class="container" style="max-width:500px;margin:40px auto; font-family: 'Courier New'">
+	<div class="container" style="max-width:900px;margin:40px auto; font-family: 'Courier New'">
 	
 	    <ul class="list-group">
 	        <li class="list-group-item">Mostrando todas transacoes</li>
@@ -32,11 +32,10 @@
 	        
 	    </ul>
 	
-	
-	    <p>Geral</p>
-	
-	    <div style="max-height:300px;overflow:auto;">
-	
+		<div>
+	    		<p style="margin: 10px">Geral</p>
+		</div>
+	    <div class="card" style="max-height:400px;overflow:auto;">
 	    <table class="table table-hover">
 	        <tbody id="myTable">
 			<c:forEach var="despesa" items="${despesas}">
