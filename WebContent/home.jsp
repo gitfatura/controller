@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	
 </head>
-<body style="background-color: #e3e0cf">
+<body style="background-color: #F8EBE1">
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  		<a class="navbar-brand" href="#"></a>
@@ -23,32 +23,60 @@
 		     <ul class="navbar-nav mr-auto">
 		        
 		        <li class="nav-item">
-		            <a class="nav-link active" href="home.jsp" style="font-family: 'serif'">Home</a>
+		            <a class="nav-link " href="home.jsp" style="font-family: 'serif'">Home</a>
 		        </li>
 		        
-		        <li class="nav-item">
-		            <a class="nav-link active"  href="./nova-receita"  style="font-family: 'serif'">Receita</a>
+		        <li class="nav-item active dropdown">
+		            <a class="nav-link  dropdown-toggle"  href="#"  style="font-family: 'serif'" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Receita</a>
+		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		            		<a class="dropdown-item" href="./nova-receita">Nova receita</a>		
+         			 	<a class="dropdown-item" href="#">Todas receitas</a>
+          				<a class="dropdown-item" href="#">Receitas atual</a>
+        				</div>
+		            
 		        </li>
-		        <li class="nav-item">
-		            <a class="nav-link" href="./nova-despesa" style="font-family: serif">Despesa</a>
+		        <li class="nav-item active dropdown">
+		            
+		            <a class="nav-link dropdown-toggle" href="#" style="font-family: serif" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Despesa</a>
+		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		            		<a class="dropdown-item" href="./nova-despesa">Nova despesa</a>
+         			 	<a class="dropdown-item" href="#">Todas despesas</a>
+          				<a class="dropdown-item" href="#">Despesas atual</a>
+        				</div>
+		            
 		        </li>
-		        <li class="nav-item">
+		        
+		        
+		        
+		       
+		        
+		        <li class="nav-item active dropdown">
+		            
+		            <a class="nav-link dropdown-toggle" href="#" style="font-family: serif" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Graficos</a>
+		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		            
+         			 	<a class="dropdown-item" href="./grafico">Grafico pizza</a>
+          				<a class="dropdown-item" href="grafico-receitas.jsp">Grafico coluna</a>
+        				</div>
+		            
+		        </li>
+		        
+		        <li class="nav-item active dropdown">
+		            
+		            <a class="nav-link dropdown-toggle" href="#" style="font-family: serif" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
+		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		            
+         			 	<a class="dropdown-item"  href="./nova-categoria-receita">Categoria / receita </a>
+          				<a class="dropdown-item" href="./nova-categoria-despesa">Categoria / despesa</a>
+        				</div>
+		            
+		        </li>
+		        
+		         <li class="nav-item active">
 		            <a class="nav-link" href="./geral" style="font-family: serif">Geral</a>
 		        </li>
-		        
-		        <li class="nav-item">
-		            <a class="nav-link" href="./grafico" style="font-family: serif">Grafico dispesas</a>
-		        </li>
-				
-				<li class="nav-item">
-		            <a class="nav-link" href="grafico-receitas.jsp" style="font-family: serif">Grafico receitas</a>
-		        </li>
-				
-				<li class="nav-item">
-		            <a class="nav-link" href="categorias.jsp" style="font-family: serif">Categorias</a>
-		        </li>
-				
-				 				
+		         
+				 				 				
 		    </ul>
 		     
 		  </div>

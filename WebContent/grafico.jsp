@@ -53,9 +53,7 @@
 <body>
 <jsp:include page="home.jsp"/>
 	<!-- Essa e a div que mostra o chart -->
-	<div style="margin-left: 200px; margin-top: 5%;  ">
-		<input type="date">
-	</div>	
+ 	
 	<div id="chart_div" class="container" style="max-width: 900px; padding: 10px; margin-left:auto; margin-right: auto; height: 500px; margin-top: 1%; font-family: 'Courier New';">
 	
 	</div>
