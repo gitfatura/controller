@@ -13,6 +13,7 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/paging.js"></script>
     
+        
 </head>
 
 <body style="background-color:  #F8EBE1">
@@ -31,9 +32,10 @@
 	        <tbody id="myTable">
 			<c:forEach var="receita" items="${receitas}">
 				<tr>
-					<td><a href="#" data-toggle="modal" data-target="#exampleModalLong">${receita.descricao}</a></td>
+					<td><a href="<c:url value="/busca-receita?id=${receita.id}"/>">${receita.descricao}</a></td>
 					<td><fmt:formatNumber value="${receita.valor}" type="currency"/></td>
 					<td><fmt:formatDate value="${receita.data}"/></td>
+					<td><a href="<c:url value="/remover-receita?id=${receita.id}"/>" class="close" aria-label="Close" onclick="return confirm('Deseja excluir ${receita.descricao}');" ><span aria-hidden="true">&times;</span></a></td>
 				</tr>
 			</c:forEach>
 	        </tbody>
@@ -42,55 +44,6 @@
 	    </div>
 	
 	</div>
-	
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Atualizacao receita</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        	 <form role="form" action="adiciona-receita" method="post">
-	        
-	        <div class="form-group">
-	            <input type="text" name="valor" class="form-control"  style="font-family: 'Courier New'; font-size: 15px" placeholder="Valor R$.." required="required">
-	        </div>
-	
-	        <div class="form-group">
-	            <select name="categoria" class="form-control" style="font-family: 'Courier New'; font-size: 15px" required="required">
-	                <option value="" selected disabled>Receita indefinida</option>
-	                <c:forEach var="receita" items="${categoriasreceitas}">
-	                		<option value="${receita.id}">${receita.descricao}</option>
-	                </c:forEach>
-	            </select>
-	        </div>
-	
-	        <div class="form-group">
-	            <input type="date" name="data" class="form-control"  placeholder="Data" style="font-family: 'Courier New'" required="required">
-	        </div>
-	        
-	        <div class="form-group">
-	            <input type="text" name="nota" class="form-control"  placeholder="Adiciona uma nota" style="font-family: 'Courier New'">
-	        </div>
-	        
-	        <button type="submit" class="btn btn-default">Registrar</button>
-	        
-	    </form>
-	        
-	        
-	                
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
- 
-</body>
+ </body>
 </html>

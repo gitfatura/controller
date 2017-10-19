@@ -42,7 +42,12 @@ public class ReceitaDao implements Assinatura<Receita> {
 	public void update(Receita receita) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "UPDATE receita SET" + " valor=?," + " categoria=?," + " data=?," + " nota=? " + " WHERE id=?";
+			String sql = "UPDATE receita SET" 
+						+ " valor=?," 
+						+ " categoria=?," 
+						+ " data=?," 
+						+ " nota=? " 
+						+ " WHERE id=?";
 
 			ps = conexao.prepareStatement(sql);
 
@@ -84,17 +89,19 @@ public class ReceitaDao implements Assinatura<Receita> {
 	public Receita buscarPorId(Receita receita) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "SELECT * FROM receita WHERE id =?";
+			String sql = "select r.id, r.valor, r.data, r.nota, r.categoria, c.descricao from receita r inner join categoria_receita c on r.categoria = c.id where r.id = ?";
 			ps = conexao.prepareStatement(sql);
 			ps.setInt(1, receita.getId());
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				receita = new Receita();
-				receita.setId(rs.getInt("id"));
+				receita.setId(rs.getInt("r.id"));
 				receita.setValor(rs.getDouble("valor"));
-				receita.setDescricao(rs.getString("categoria"));
+				receita.setDescricao(rs.getString("descricao"));
 				receita.setData(rs.getDate("data"));
 				receita.setNota(rs.getString("nota"));
+				receita.setIdCategoria(rs.getInt("categoria"));
+					
 			}
 
 		} catch (Exception e) {

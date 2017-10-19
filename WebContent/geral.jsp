@@ -33,7 +33,7 @@
 	    </ul>
 	
 		<div>
-	    		<p style="margin: 10px">Geral</p>
+	    		<p style="margin: 10px">Todas despesas</p>
 		</div>
 	    <div class="card" style="max-height:400px;overflow:auto;">
 	    <table class="table table-hover">

@@ -52,7 +52,7 @@ public class ReceitaService extends HttpServlet implements AssinaturaService {
 			Receita receita = new Receita();
 
 			String id = request.getParameter("id");
-			String valor = request.getParameter("valor");
+			String valor = request.getParameter("valor").replace("R$", "").replace(",", ".");
 			String categoria = request.getParameter("categoria");
 			String data = request.getParameter("data");
 			String nota = request.getParameter("nota");
@@ -93,10 +93,13 @@ public class ReceitaService extends HttpServlet implements AssinaturaService {
 		try {
 
 			String id = request.getParameter("id");
+			
 			Receita receitaObj = new Receita();
+			
 			receitaObj.setId(Integer.parseInt(id));
 
 			Receita receita = dao.buscarPorId(receitaObj);
+			
 			request.setAttribute("receita", receita);
 
 		} catch (Exception e) {
