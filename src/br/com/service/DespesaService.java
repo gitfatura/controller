@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.dao.Calcula;
 import br.com.dao.DespesaDao;
-import br.com.modelo.CategoriaDespesa;
 import br.com.modelo.Despesa;
 
 public class DespesaService extends HttpServlet implements AssinaturaService {
@@ -31,15 +30,14 @@ public class DespesaService extends HttpServlet implements AssinaturaService {
 			String valor = request.getParameter("valor");
 			String categoria = request.getParameter("categoria");
 			String data = request.getParameter("data");
-			String nota = request.getParameter("nota");
 			Date dataformatada = new SimpleDateFormat("yyyy-MM-dd").parse(data);
 
 			despesa.setValor(Double.parseDouble(valor));
 			despesa.setIdcategoria(Integer.parseInt(categoria));
 			despesa.setData(dataformatada);
-			despesa.setNota(nota);
 			despesaDao.adiciona(despesa);
-
+			request.getSession().setAttribute("sucesso", despesaDao.msg);
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -52,17 +50,15 @@ public class DespesaService extends HttpServlet implements AssinaturaService {
 			Despesa despesa = new Despesa();
 
 			String id = request.getParameter("id");
-			String valor = request.getParameter("valor");
+			String valor = request.getParameter("valor").replace("R$", "").replace(",",".");
 			String categoria = request.getParameter("categoria");
 			String data = request.getParameter("data");
-			String nota = request.getParameter("nota");
 			Date dataformatada = new SimpleDateFormat("yyyy-MM-dd").parse(data);
 
 			despesa.setId(Integer.parseInt(id));
 			despesa.setValor(Double.parseDouble(valor));
 			despesa.setIdcategoria(Integer.parseInt(categoria));
 			despesa.setData(dataformatada);
-			despesa.setNota(nota);
 
 			despesaDao.update(despesa);
 
@@ -93,9 +89,13 @@ public class DespesaService extends HttpServlet implements AssinaturaService {
 		try {
 
 			String id = request.getParameter("id");
+			
 			Despesa despesaObj = new Despesa();
+			
 			despesaObj.setId(Integer.parseInt(id));
+			
 			Despesa despesa = despesaDao.buscarPorId(despesaObj);
+			
 			request.setAttribute("despesa", despesa);
 
 		} catch (Exception e) {

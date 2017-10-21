@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.service.CategoriaDespesaService;
 import br.com.service.DespesaService;
 
-@WebServlet({ "/adiciona-despesa", "/update-despesa", "/remove-despesa", "/busca-todas-despesas","/nova-despesa" })
+@WebServlet({ "/adiciona-despesa", "/update-despesa", "/remover-despesa", "/busca-despesas","/nova-despesa","/busca-despesa" })
 public class DespesasController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -50,8 +50,26 @@ public class DespesasController extends HttpServlet {
 				}
 			}
 			
-			 
+			if (uri.equalsIgnoreCase(path + "/busca-despesas")) {
+				dservice.buscarTodos(request, response);
+				request.getRequestDispatcher("/despesas.jsp").forward(request, response);
+			}
+
+			if (uri.equalsIgnoreCase(path + "/remover-despesa")) {
+				dservice.remove(request, response);
+				response.sendRedirect(path+"/busca-despesas");
+			}
 			
+			if (uri.equalsIgnoreCase(path + "/busca-despesa")) {
+				dservice.buscarPorId(request, response);
+				categoriaDespesaService.buscaTodos(request, response);
+				request.getRequestDispatcher("/update-despesa.jsp").forward(request, response);
+			}
+			if (uri.equalsIgnoreCase(path + "/update-despesa")) {
+				dservice.update(request, response);
+				response.sendRedirect(path+"/busca-despesas");
+			}
+
 			
 		} catch (Exception e) {
 			System.out.println(e);

@@ -14,7 +14,7 @@
 	
 </head>
 <body style="background-color:  #F8EBE1">
-	<jsp:include page="home.jsp"/>
+	<jsp:include page="/home.jsp"/>
 		<c:forEach var="rec" items="${receitas}">
 		<script type="text/javascript">
 		

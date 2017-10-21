@@ -11,7 +11,7 @@ import br.com.dao.Calcula;
 import br.com.service.DespesaService;
 import br.com.service.ReceitaService;
 
-@WebServlet({"/geral","/grafico"})
+@WebServlet({"/geral","/grafico-despesa","/grafico-receita"})
 public class PrincipalController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,11 +42,15 @@ public class PrincipalController extends HttpServlet {
 				request.getRequestDispatcher("/geral.jsp").forward(request, response);
 			} 
 			
-			if(uri.equalsIgnoreCase(path+"/grafico")) {
+			if(uri.equalsIgnoreCase(path+"/grafico-despesa")) {
 				despesaService.buscarTodos(request, response);
-				request.getRequestDispatcher("/grafico.jsp").forward(request, response);
+				request.getRequestDispatcher("/grafico-despesa.jsp").forward(request, response);
 			}
-			 
+			
+			if(uri.equalsIgnoreCase(path+"/grafico-receita")) {
+				receitaService.buscarTodos(request, response);
+				request.getRequestDispatcher("/grafico-receita.jsp").forward(request, response);
+			} 
 
 		} catch (Exception e) {
 			System.out.println(e);

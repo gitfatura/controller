@@ -12,25 +12,19 @@ public class DespesaDao implements Assinatura<Despesa> {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection conexao;
-
+	public String msg;
 	@Override
 	public void adiciona(Despesa despesa) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "INSERT INTO despesa" 
-					+ "(valor," 
-					+ "categoria," 
-					+ "data," 
-					+ "nota)" 
-					+ "VALUES(?,?,?,?)";
+			String sql = "INSERT INTO despesa(valor,categoria,data) VALUES (?,?,?)";
 
 			ps = conexao.prepareStatement(sql);
 			ps.setDouble(1, despesa.getValor());
 			ps.setInt(2, despesa.getIdcategoria());
 			ps.setDate(3, new java.sql.Date(despesa.getData().getTime()));
-			ps.setString(4, despesa.getNota());
 			ps.executeUpdate();
-
+			
 		} catch (Exception e) {
 			System.out.println("Erro ao adicionar a despesa " + e);
 		} finally {
@@ -44,19 +38,13 @@ public class DespesaDao implements Assinatura<Despesa> {
 	public void update(Despesa despesa) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "UPDATE despesa SET" 
-					+ " valor=?," 
-					+ " categoria=?," 
-					+ " data=?," 
-					+ " nota=? " 
-					+ " WHERE id=?";
+			String sql = "UPDATE despesa SET" + " valor=?," + " categoria=?," + " data=?" + " WHERE id=?";
 
 			ps = conexao.prepareStatement(sql);
 			ps.setDouble(1, despesa.getValor());
 			ps.setInt(2, despesa.getIdcategoria());
 			ps.setDate(3, new java.sql.Date(despesa.getData().getTime()));
-			ps.setString(4, despesa.getNota());
-			ps.setInt(5, despesa.getId());
+			ps.setInt(4, despesa.getId());
 			ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -89,7 +77,7 @@ public class DespesaDao implements Assinatura<Despesa> {
 	public Despesa buscarPorId(Despesa despesa) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "select d.id, d.valor, d.data, c.descricao from despesa d inner join categoria_despesa c on d.categoria = c.id WHERE id =?";
+			String sql = "select d.id, d.valor, d.data, d.categoria, c.descricao from despesa d inner join categoria_despesa c on d.categoria = c.id WHERE d.id =?";
 			ps = conexao.prepareStatement(sql);
 			ps.setInt(1, despesa.getId());
 			rs = ps.executeQuery();
@@ -99,6 +87,7 @@ public class DespesaDao implements Assinatura<Despesa> {
 				despesa.setValor(rs.getDouble("valor"));
 				despesa.setDescricao(rs.getString("descricao"));
 				despesa.setData(rs.getDate("data"));
+				despesa.setIdcategoria(rs.getInt("categoria"));
 			}
 
 		} catch (Exception e) {
@@ -110,7 +99,7 @@ public class DespesaDao implements Assinatura<Despesa> {
 		return despesa;
 
 	}
-	
+
 	@Override
 	public List<Despesa> buscarTodos() throws Exception {
 		Despesa despesa = null;
@@ -136,9 +125,9 @@ public class DespesaDao implements Assinatura<Despesa> {
 			ps.close();
 		}
 		return despesas;
-		
+
 	}
-	
+
 	public List<Despesa> buscarTodosPorData(String inicio, String fim) throws Exception {
 		Despesa despesa = null;
 		List<Despesa> despesas = new ArrayList<>();
@@ -153,9 +142,8 @@ public class DespesaDao implements Assinatura<Despesa> {
 				despesa = new Despesa();
 				despesa.setId(rs.getInt("id"));
 				despesa.setValor(rs.getDouble("valor"));
-				//despesa.setCategoria(rs.getInt("categoria"));
+				// despesa.setCategoria(rs.getInt("categoria"));
 				despesa.setData(rs.getDate("data"));
-				despesa.setNota(rs.getString("nota"));
 				despesas.add(despesa);
 			}
 
@@ -166,9 +154,9 @@ public class DespesaDao implements Assinatura<Despesa> {
 			ps.close();
 		}
 		return despesas;
-		
+
 	}
-	
+
 	public List<Despesa> buscarTodosDataAtual(String data) throws Exception {
 		Despesa despesa = null;
 		List<Despesa> despesas = new ArrayList<>();
@@ -182,9 +170,8 @@ public class DespesaDao implements Assinatura<Despesa> {
 				despesa = new Despesa();
 				despesa.setId(rs.getInt("id"));
 				despesa.setValor(rs.getDouble("valor"));
-				//despesa.setCategoria(rs.getInt("categoria"));
+				// despesa.setCategoria(rs.getInt("categoria"));
 				despesa.setData(rs.getDate("data"));
-				despesa.setNota(rs.getString("nota"));
 				despesas.add(despesa);
 			}
 
@@ -195,9 +182,7 @@ public class DespesaDao implements Assinatura<Despesa> {
 			ps.close();
 		}
 		return despesas;
-		
+
 	}
-	
-	
-	
+
 }

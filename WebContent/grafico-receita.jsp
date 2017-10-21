@@ -28,14 +28,14 @@
     		// Crie a tabela de dados.
              var data = google.visualization.arrayToDataTable([
                                                               ['Country', 'Area(square km)'],
-                                                              <c:forEach items="${despesas}" var="d">
-                                                                  [ '${d.descricao}', ${d.valor} ],
+                                                              <c:forEach items="${receitas}" var="r">
+                                                                  [ '${r.descricao}', ${r.valor} ],
                                                               </c:forEach>
                                                         ]);
  
           // Definir opções de gráfico
         var options = {
-            'title' : 'Dispesas mesnal', //set um titulo para o chart
+            'title' : 'Receita mesnal', //set um titulo para o chart
             is3D : true, // renderizar o Google Pie Chart como 3D
             pieSliceText: 'label', //no rótulo de exibição de mouse hover ou nome do país
             tooltip :  {showColorCode: true}, // se deseja exibir o código de cores para um país no mouse

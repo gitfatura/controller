@@ -40,7 +40,7 @@
 		            <a class="nav-link dropdown-toggle" href="#" style="font-family: serif" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Despesa</a>
 		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		            		<a class="dropdown-item" href="./nova-despesa">Nova despesa</a>
-         			 	<a class="dropdown-item" href="#">Todas despesas</a>
+         			 	<a class="dropdown-item" href="./busca-despesas">Todas despesas</a>
           				<a class="dropdown-item" href="#">Despesas atual</a>
         				</div>
 		            
@@ -54,8 +54,8 @@
 		            <a class="nav-link dropdown-toggle" href="#" style="font-family: serif" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Graficos</a>
 		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		            
-         			 	<a class="dropdown-item" href="./grafico">Grafico pizza</a>
-          				<a class="dropdown-item" href="grafico-receitas.jsp">Grafico coluna</a>
+         			 	<a class="dropdown-item" href="./grafico-despesa">Grafico despesa</a>
+          				<a class="dropdown-item" href="./grafico-receita">Grafico receita</a>
         				</div>
 		            
 		        </li>

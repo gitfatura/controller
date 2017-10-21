@@ -17,8 +17,6 @@ public class Teste {
 			System.out.println(buscarPorId.getValor());
 			System.out.println(buscarPorId.getDescricao());
 			System.out.println(buscarPorId.getData());
-			System.out.println(buscarPorId.getNota());
-			
 			
 			// String data = "2017-10-12";
 

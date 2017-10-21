@@ -7,8 +7,7 @@
     <title>Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initialscale=1">
-	 	
-</head>
+ </head>
 <body style="background-color:  #F8EBE1">
 	
 	<jsp:include page="home.jsp"/>
@@ -35,18 +34,13 @@
 		        </div>
 		
 		        <div class="form-group">
-		            <input type="date" name="data" class="form-control"  placeholder="Data" style="font-family: 'Courier New'" required="required">
+		            <input type="date" name="data" placeholder="00-00-0000" class="form-control"  placeholder="Data" style="font-family: 'Courier New'" required="required">
 		        </div>
 		        
-		        <div class="form-group">
-		            <input type="text" name="nota" class="form-control"  placeholder="Adiciona uma nota" style="font-family: 'Courier New'">
-		        </div>
-		        
-		        <button type="submit" class="btn btn-default">Registrar</button>
-		        
-		    </form>
-		    
+		        <button type="submit" id="registrar" class="btn btn-default">Registrar</button>
+		       		        
+		       </form>
+		    	
 		</div>
-
-</body>
+	 </body>
 </html>

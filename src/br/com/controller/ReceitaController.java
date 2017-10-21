@@ -65,7 +65,7 @@ public class ReceitaController extends HttpServlet {
 			
 			if (uri.equalsIgnoreCase(path + "/update-receita")) {
 				receitaService.update(request, response);
-				request.getRequestDispatcher("/receitas.jsp").forward(request, response);
+				response.sendRedirect(path+"/receitas");
 			}
 			
 			if (uri.equalsIgnoreCase(path + "/remover-receita")) {

@@ -19,14 +19,13 @@ public class ReceitaDao implements Assinatura<Receita> {
 	public void adiciona(Receita receita) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "INSERT INTO receita" + "(valor," + "categoria," + "data," + "nota)" + "VALUES(?,?,?,?)";
+			String sql = "INSERT INTO receita(valor, categoria, data) VALUES(?,?,?)";
 
 			ps = conexao.prepareStatement(sql);
 
 			ps.setDouble(1, receita.getValor());
 			ps.setInt(2, receita.getIdCategoria());
 			ps.setDate(3, new java.sql.Date(receita.getData().getTime()));
-			ps.setString(4, receita.getNota());
 			ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -45,8 +44,7 @@ public class ReceitaDao implements Assinatura<Receita> {
 			String sql = "UPDATE receita SET" 
 						+ " valor=?," 
 						+ " categoria=?," 
-						+ " data=?," 
-						+ " nota=? " 
+						+ " data=?" 
 						+ " WHERE id=?";
 
 			ps = conexao.prepareStatement(sql);
@@ -54,8 +52,7 @@ public class ReceitaDao implements Assinatura<Receita> {
 			ps.setDouble(1, receita.getValor());
 			ps.setInt(2, receita.getIdCategoria());
 			ps.setDate(3, new java.sql.Date(receita.getData().getTime()));
-			ps.setString(4, receita.getNota());
-			ps.setInt(5, receita.getId());
+			ps.setInt(4, receita.getId());
 
 			ps.executeUpdate();
 
@@ -89,7 +86,7 @@ public class ReceitaDao implements Assinatura<Receita> {
 	public Receita buscarPorId(Receita receita) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "select r.id, r.valor, r.data, r.nota, r.categoria, c.descricao from receita r inner join categoria_receita c on r.categoria = c.id where r.id = ?";
+			String sql = "select r.id, r.valor, r.data, r.categoria, c.descricao from receita r inner join categoria_receita c on r.categoria = c.id where r.id = ?";
 			ps = conexao.prepareStatement(sql);
 			ps.setInt(1, receita.getId());
 			rs = ps.executeQuery();
@@ -99,7 +96,6 @@ public class ReceitaDao implements Assinatura<Receita> {
 				receita.setValor(rs.getDouble("valor"));
 				receita.setDescricao(rs.getString("descricao"));
 				receita.setData(rs.getDate("data"));
-				receita.setNota(rs.getString("nota"));
 				receita.setIdCategoria(rs.getInt("categoria"));
 					
 			}
@@ -159,7 +155,6 @@ public class ReceitaDao implements Assinatura<Receita> {
 				receita.setValor(rs.getDouble("valor"));
 				receita.setDescricao(rs.getString("categoria"));
 				receita.setData(rs.getDate("data"));
-				receita.setNota(rs.getString("nota"));
 				receitas.add(receita);
 			}
 
@@ -191,7 +186,6 @@ public class ReceitaDao implements Assinatura<Receita> {
 				receita.setValor(rs.getDouble("valor"));
 				receita.setDescricao(rs.getString("categoria"));
 				receita.setData(rs.getDate("data"));
-				receita.setNota(rs.getString("nota"));
 				receitas.add(receita);
 			}
 

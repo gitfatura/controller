@@ -37,7 +37,6 @@ public class ReceitaService extends HttpServlet implements AssinaturaService {
 			receita.setValor(Double.parseDouble(valor));
 			receita.setIdCategoria(Integer.parseInt(categoria));
 			receita.setData(dataformatada);
-			receita.setNota(nota);
 			dao.adiciona(receita);
 
 		} catch (Exception e) {
@@ -62,7 +61,6 @@ public class ReceitaService extends HttpServlet implements AssinaturaService {
 			receita.setValor(Double.parseDouble(valor));
 			receita.setIdCategoria(Integer.parseInt(categoria));
 			receita.setData(dataformatada);
-			receita.setNota(nota);
 
 			dao.update(receita);
 

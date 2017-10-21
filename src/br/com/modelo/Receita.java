@@ -15,19 +15,17 @@ public class Receita {
 	private int idCategoria;
 	private String descricao;
 	private Date data;
-	private String nota;
 
 	public Receita() {
 	}
 
-	public Receita(int id, double valor, int idCategoria, String descricao, Date data, String nota) {
+	public Receita(int id, double valor, int idCategoria, String descricao, Date data) {
 		super();
 		this.id = id;
 		this.valor = valor;
 		this.idCategoria = idCategoria;
 		this.descricao = descricao;
 		this.data = data;
-		this.nota = nota;
 	}
 
 	public int getId() {
@@ -68,14 +66,6 @@ public class Receita {
 
 	public void setData(Date data) {
 		this.data = data;
-	}
-
-	public String getNota() {
-		return nota;
-	}
-
-	public void setNota(String nota) {
-		this.nota = nota;
 	}
 
 	
