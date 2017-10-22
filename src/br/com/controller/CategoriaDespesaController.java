@@ -1,6 +1,7 @@
 package br.com.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.service.CategoriaDespesaService;
-import br.com.service.DespesaService;
 
 @WebServlet({ "/adiciona-categoria-despesa", "/busca-todas-categoria-despesa","/nova-categoria-despesa" })
 public class CategoriaDespesaController extends HttpServlet {
@@ -47,8 +47,6 @@ public class CategoriaDespesaController extends HttpServlet {
 					return;
 				}
 			}
-			
-			 
 			
 			
 		} catch (Exception e) {

@@ -73,8 +73,6 @@ public class ReceitaController extends HttpServlet {
 				response.sendRedirect(path+"/receitas");
 			}
 
-
-
 			
 		} catch (Exception e) {
 			System.out.println(e);

@@ -31,9 +31,7 @@ public class ReceitaService extends HttpServlet implements AssinaturaService {
 			String valor = request.getParameter("valor");
 			String categoria = request.getParameter("categoria");
 			String data = request.getParameter("data");
-			String nota = request.getParameter("nota");
 			Date dataformatada = new SimpleDateFormat("yyyy-MM-dd").parse(data);
-			System.out.println(data);
 			receita.setValor(Double.parseDouble(valor));
 			receita.setIdCategoria(Integer.parseInt(categoria));
 			receita.setData(dataformatada);
@@ -54,7 +52,6 @@ public class ReceitaService extends HttpServlet implements AssinaturaService {
 			String valor = request.getParameter("valor").replace("R$", "").replace(",", ".");
 			String categoria = request.getParameter("categoria");
 			String data = request.getParameter("data");
-			String nota = request.getParameter("nota");
 			Date dataformatada = new SimpleDateFormat("yyyy-MM-dd").parse(data);
 
 			receita.setId(Integer.parseInt(id));
@@ -130,56 +127,6 @@ public class ReceitaService extends HttpServlet implements AssinaturaService {
 		}
 
 	}
-
-	// public void adiciona(HttpServletRequest request, HttpServletResponse
-	// response)
-	// throws ServletException, IOException {
-	// try {
-	// Despesa despesa = new Despesa();
-	//
-	// String valor = request.getParameter("valor");
-	// String categoria = request.getParameter("categoria");
-	// String data = request.getParameter("data");
-	// String nota = request.getParameter("nota");
-	// Date dataformatada = new SimpleDateFormat("yyyy-MM-dd").parse(data);
-	//
-	// despesa.setValor(Double.parseDouble(valor));
-	// despesa.setCategoria(Integer.parseInt(categoria));
-	// despesa.setData(dataformatada);
-	// despesa.setNota(nota);
-	// despesaDao.adiciona(despesa);
-	//
-	//
-	// } catch (ParseException e) {
-	// System.out.println(e);
-	// }finally {
-	// }
-	// }
-
-	// public void todasDispesas(HttpServletRequest request, HttpServletResponse
-	// response)
-	// throws ServletException, IOException {
-	// request.setAttribute("dispesas", dispesas);
-	// dispesas.forEach(System.out::println);
-	// }
-	// public void calcula(HttpServletRequest request, HttpServletResponse response)
-	// throws ServletException, IOException {
-	//
-	// double somad=0;
-	// for (Dispesa d : dispesas) {
-	// somad +=d.getValor();
-	// }
-	//
-	// request.setAttribute("somad", somad);
-	// }
-
-	// public static Double getCalculo() {
-	// double soma=0;
-	// for (Dispesa d : dispesas) {
-	// soma+=d.getValor();
-	// }
-	// return soma;
-	// }
-	//
+	
 
 }

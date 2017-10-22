@@ -5,7 +5,6 @@ import java.util.List;
 import br.com.modelo.Despesa;
 import br.com.modelo.Receita;
 
-
 /**
  *Essa classe realiza calculos da despesa e da receita.
  *@author Tiago Santos de Lima.
@@ -13,7 +12,6 @@ import br.com.modelo.Receita;
  *@version 1.0 
  */
 public class Calcula {
-	
 	
 	private DespesaDao despesaDao = new DespesaDao();
 	private ReceitaDao receitaDao = new ReceitaDao();
@@ -42,22 +40,6 @@ public class Calcula {
 	}
 	
 	/**
-	 * Calcula todas despesas somente do mes parametrizado.
-	 * @return a soma de todas despesas.
-	 * @param data
-	 * @throws Exceçao no caso data for passado com formado errado.
-	 */
-	public Double calculaDespesasAtual(String data) throws Exception {
-		double soma = 0;
-		List<Despesa> despesas = despesaDao.buscarTodosDataAtual(data);
-		for (Despesa despesa : despesas) {
-			soma += despesa.getValor();
-		}
-		return soma;
-	}
-	
-	
-	/**
 	 * Calcula todas despesas.
 	 * @return a soma de todas despesas.
 	 */
@@ -70,19 +52,5 @@ public class Calcula {
 		return soma;
 	}
 	
-	/**
-	 * Calcula todas despesas entre as datas parametrizadas.
-	 * @return a soma de todas despesas.
-	 * @param inicio e fim.
-	 * @throws Exceçao no caso data inicio ou fim for passado com formado errado.
-	 */
-	public Double calculaDespesasAtual(String inicio, String fim) throws Exception {
-		double soma = 0;
-		List<Despesa> despesas = despesaDao.buscarTodosPorData(inicio, fim);
-		for (Despesa despesa : despesas) {
-			soma += despesa.getValor();
-		}
-		return soma;
-	}
-
+	 
 }

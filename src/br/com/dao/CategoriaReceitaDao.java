@@ -9,12 +9,23 @@ import com.mysql.jdbc.Connection;
 
 import br.com.modelo.CategoriaReceita;
 
+/**
+ *Essa classe CategoriaReceitaDao é utilizada para realizar as interações com o banco de dados.
+ *@author Tiago Santos de Lima  
+ *@since 1.8
+ *@version 1.0
+ */
 public class CategoriaReceitaDao implements Assinatura<CategoriaReceita> {
 
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection conexao;
 
+	
+	/**
+	 *insere as categorias para receita.
+	 *@param receita
+	 */
 	@Override
 	public void adiciona(CategoriaReceita receita) throws Exception {
 		try {
@@ -35,6 +46,10 @@ public class CategoriaReceitaDao implements Assinatura<CategoriaReceita> {
 
 	}
 
+	/**
+	 *lista todas categorias da receita.
+	 *@return todas categorias da receita.
+	 */
 	@Override
 	public List<CategoriaReceita> buscarTodos() throws Exception {
 		CategoriaReceita receita = null;

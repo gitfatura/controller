@@ -44,11 +44,7 @@
 	        <div class="form-group">
 	            <input type="date" name="data" value="${despesa.data}" class="form-control"  placeholder="Data" style="font-family: 'Courier New'" required="required">
 	        </div>
-	        
-	        <div class="form-group">
-	            <input type="text" name="nota" value="${despesa.nota}" class="form-control"  placeholder="Adiciona uma nota" style="font-family: 'Courier New'">
-	        </div>
-	        
+	         
 	        <button type="submit" class="btn btn-default">Registrar</button>
 	        
 	    </form>

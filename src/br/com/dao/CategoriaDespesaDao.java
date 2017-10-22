@@ -9,7 +9,7 @@ import br.com.modelo.CategoriaDespesa;
 
 
 /**
- *Essa classe é utilizada para realizar as interações da categoria e da despesa com o banco de dados.
+ *Essa classe CategoriaDespesaDao é utilizada para realizar as interações com o banco de dados.
  *@author Tiago Santos de Lima  
  *@since 1.8
  *@version 1.0
@@ -22,8 +22,8 @@ public class CategoriaDespesaDao implements Assinatura<CategoriaDespesa> {
 	
 	
 	/**
-	 * Esse metodo adiciona todas as categorias das despesas no banco de dados.
-	 *
+	 *insere as categorias para despesas.
+	 *@param despesa
 	 */
 	@Override
 	public void adiciona(CategoriaDespesa despesa) throws Exception {
@@ -41,6 +41,10 @@ public class CategoriaDespesaDao implements Assinatura<CategoriaDespesa> {
 		}
 	}
 
+	/**
+	 *lista as categorias para despesa.
+	 *@return todas categorias da despesa.
+	 */
 	@Override
 	public List<CategoriaDespesa> buscarTodos() throws Exception {
 		CategoriaDespesa despesa = null;

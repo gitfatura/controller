@@ -22,7 +22,6 @@
 	        <div class="form-group">
 	            <input type="text" name="categoria" class="form-control"  style="font-family: 'Courier New'; font-size: 15px" placeholder="Informe categoria / despesas.." required="required">
 	        </div>
-	
 	          	        
 	        <button type="submit" class="btn btn-default">Registrar</button>
 	        

@@ -4,10 +4,20 @@ import java.sql.DriverManager;
 
 import com.mysql.jdbc.Connection;
 
+/**
+ * Essa classe faz a conexao com banco de dados.
+ * @author Tiago Santos de Lima.
+ * @since 1.8
+ * @version 1.0
+ */
 public class Conexao {
 
 	private static Connection connection;
 
+	/**
+	 * faz a conexao com com banco
+	 * @return conexao 
+	 */
 	public static Connection getConnection() throws Exception {
 
 		try {

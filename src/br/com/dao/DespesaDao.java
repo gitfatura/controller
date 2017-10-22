@@ -7,12 +7,21 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 import br.com.modelo.Despesa;
 
+/**
+ *Essa classe DespesaDao é utilizada para realizar as interações com o banco de dados.
+ *@author Tiago Santos de Lima
+ *@since 1.8
+ *@version 1.0 
+ */
 public class DespesaDao implements Assinatura<Despesa> {
 
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection conexao;
-	public String msg;
+
+	/**
+	 * insere a despesa no banco de dados.
+	 */
 	@Override
 	public void adiciona(Despesa despesa) throws Exception {
 		try {
@@ -34,6 +43,10 @@ public class DespesaDao implements Assinatura<Despesa> {
 
 	}
 
+	
+	/**
+	 * atualiza a despesa no banco de dados.
+	 */
 	@Override
 	public void update(Despesa despesa) throws Exception {
 		try {
@@ -55,6 +68,9 @@ public class DespesaDao implements Assinatura<Despesa> {
 		}
 	}
 
+	/**
+	 * remove a despesa no banco de dados.
+	 */
 	@Override
 	public void remove(Despesa despesa) throws Exception {
 		try {
@@ -73,6 +89,9 @@ public class DespesaDao implements Assinatura<Despesa> {
 		}
 	}
 
+	/**
+	 * busca a despesa no banco de dados pelo codigo (id).
+	 */
 	@Override
 	public Despesa buscarPorId(Despesa despesa) throws Exception {
 		try {
@@ -100,6 +119,10 @@ public class DespesaDao implements Assinatura<Despesa> {
 
 	}
 
+	/**
+	 * busca no banco de dados todas as despesas.
+	 * @return despesas
+	 */
 	@Override
 	public List<Despesa> buscarTodos() throws Exception {
 		Despesa despesa = null;
@@ -120,63 +143,6 @@ public class DespesaDao implements Assinatura<Despesa> {
 
 		} catch (Exception e) {
 			System.out.println("Erro ao buscar todas despesas  " + e);
-		} finally {
-			conexao.close();
-			ps.close();
-		}
-		return despesas;
-
-	}
-
-	public List<Despesa> buscarTodosPorData(String inicio, String fim) throws Exception {
-		Despesa despesa = null;
-		List<Despesa> despesas = new ArrayList<>();
-		try {
-			conexao = Conexao.getConnection();
-			String sql = "SELECT * FROM despesa WHERE data BETWEEN ? AND ?";
-			ps = conexao.prepareStatement(sql);
-			ps.setString(1, inicio);
-			ps.setString(2, fim);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				despesa = new Despesa();
-				despesa.setId(rs.getInt("id"));
-				despesa.setValor(rs.getDouble("valor"));
-				// despesa.setCategoria(rs.getInt("categoria"));
-				despesa.setData(rs.getDate("data"));
-				despesas.add(despesa);
-			}
-
-		} catch (Exception e) {
-			System.out.println("Erro ao buscar todas despesa por data " + e);
-		} finally {
-			conexao.close();
-			ps.close();
-		}
-		return despesas;
-
-	}
-
-	public List<Despesa> buscarTodosDataAtual(String data) throws Exception {
-		Despesa despesa = null;
-		List<Despesa> despesas = new ArrayList<>();
-		try {
-			conexao = Conexao.getConnection();
-			String sql = "SELECT * FROM despesa WHERE MONTH(data) =?";
-			ps = conexao.prepareStatement(sql);
-			ps.setString(1, data);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				despesa = new Despesa();
-				despesa.setId(rs.getInt("id"));
-				despesa.setValor(rs.getDouble("valor"));
-				// despesa.setCategoria(rs.getInt("categoria"));
-				despesa.setData(rs.getDate("data"));
-				despesas.add(despesa);
-			}
-
-		} catch (Exception e) {
-			System.out.println("Erro ao buscar todas despesa por data atual " + e);
 		} finally {
 			conexao.close();
 			ps.close();

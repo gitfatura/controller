@@ -31,7 +31,6 @@
 		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		            		<a class="dropdown-item" href="./nova-receita">Nova receita</a>		
          			 	<a class="dropdown-item" href="./receitas">Todas receitas</a>
-          				<a class="dropdown-item" href="#">Receitas atual</a>
         				</div>
 		            
 		        </li>
@@ -41,7 +40,6 @@
 		            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		            		<a class="dropdown-item" href="./nova-despesa">Nova despesa</a>
          			 	<a class="dropdown-item" href="./busca-despesas">Todas despesas</a>
-          				<a class="dropdown-item" href="#">Despesas atual</a>
         				</div>
 		            
 		        </li>

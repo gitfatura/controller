@@ -32,7 +32,6 @@
 	        <tbody id="myTable">
 			<c:forEach var="despesa" items="${despesas}">
 				<tr>
-					<td>${despesa.id}</td>
 					<td><a href="<c:url value="/busca-despesa?id=${despesa.id}"/>">${despesa.descricao}</a></td>
 					<td><fmt:formatNumber value="${despesa.valor}" type="currency"/></td>
 					<td><fmt:formatDate value="${despesa.data}"/></td>

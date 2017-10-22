@@ -36,7 +36,6 @@ public class DespesaService extends HttpServlet implements AssinaturaService {
 			despesa.setIdcategoria(Integer.parseInt(categoria));
 			despesa.setData(dataformatada);
 			despesaDao.adiciona(despesa);
-			request.getSession().setAttribute("sucesso", despesaDao.msg);
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -128,57 +127,5 @@ public class DespesaService extends HttpServlet implements AssinaturaService {
 		}
 
 	}
-	
-
-	// public void adiciona(HttpServletRequest request, HttpServletResponse
-	// response)
-	// throws ServletException, IOException {
-	// try {
-	// Despesa despesa = new Despesa();
-	//
-	// String valor = request.getParameter("valor");
-	// String categoria = request.getParameter("categoria");
-	// String data = request.getParameter("data");
-	// String nota = request.getParameter("nota");
-	// Date dataformatada = new SimpleDateFormat("yyyy-MM-dd").parse(data);
-	//
-	// despesa.setValor(Double.parseDouble(valor));
-	// despesa.setCategoria(Integer.parseInt(categoria));
-	// despesa.setData(dataformatada);
-	// despesa.setNota(nota);
-	// despesaDao.adiciona(despesa);
-	//
-	//
-	// } catch (ParseException e) {
-	// System.out.println(e);
-	// }finally {
-	// }
-	// }
-
-	// public void todasDispesas(HttpServletRequest request, HttpServletResponse
-	// response)
-	// throws ServletException, IOException {
-	// request.setAttribute("dispesas", dispesas);
-	// dispesas.forEach(System.out::println);
-	// }
-	// public void calcula(HttpServletRequest request, HttpServletResponse response)
-	// throws ServletException, IOException {
-	//
-	// double somad=0;
-	// for (Dispesa d : dispesas) {
-	// somad +=d.getValor();
-	// }
-	//
-	// request.setAttribute("somad", somad);
-	// }
-
-	// public static Double getCalculo() {
-	// double soma=0;
-	// for (Dispesa d : dispesas) {
-	// soma+=d.getValor();
-	// }
-	// return soma;
-	// }
-	//
 
 }
